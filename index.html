@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Letter</title>
+
+        <head>
+            <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        </head>
+
+        <style>
+            h1{
+                text-align: center;
+                
+            }
+            
+            body{
+                font-family: "Pacifico", cursive;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #ecd6d6;
+            }
+
+            .sobre{
+                width: 300px;
+                height: 220px;
+                background: rgb(230, 143, 143);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                margin: auto;
+                position: relative;
+                top: 10px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 20px;
+            }
+
+            #triangulo{
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 170px solid transparent;  
+                border-right: 170px solid transparent; 
+                border-top: 65px solid #ff4d6d;  
+                position: absolute;
+                top: 0; 
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 8%;
+                transition: top 0.4s ease;
+            }
+
+            #mensaje{
+                display: none;
+                text-align: center;
+                font-size: 18px;
+                margin-top: 60px;
+                overflow-wrap: break-word;
+            }
+
+            #cerrar{
+                display: none;
+                margin: auto;
+            }
+
+            button{
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                background-color: #ff4d6d;
+                color: white;
+                
+            }
+
+            button:hover{
+                background-color: rgb(211, 106, 106);
+                border-radius: 10px;
+                border-top: 5px solid rgb(211, 106, 106);
+            }
+
+            button:active{
+                background-color: rgb(211, 106, 106);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <h1>De mi corazon al tuyo</h1>
+        </header>
+        
+        <main>
+            <section class="sobre">
+                <div id="triangulo">
+                </div>
+                <button id="abrir">
+                    Abrir 💌
+                </button>
+                <p id="mensaje">
+
+                    La primera vez que me escribiste me encontraba distraido pensando cosas de la universidad. Nunca imagine que podriamos ser buenos amigos y que me encontraria ahora mismo escribiendo esta carta solo para decirte lo mucho que te aprecio. Eres una chica muy cariñosa y un poco rara pero yo creo que eso es lo que te hace especial. Tu personalidad me agrada bastante y a veces con solo ser tu ya me haces reir aunque no lo veas. 
+                    
+                    Estas cosas no son para que te sientas abrumada o para que pienes que "no me estas correspondiendo". Como ya sabes, ahora mismo me encuentro en vacaciones y por eso quiero dejarte todos los recuerdos que pueda antes de que deje de tener el mismo tiempo libre que tengo ahora. Asi que no te preocupes, solo toma estas cosas como recuerdos bonitos. Porque eso es lo que dijimos que ibamos a crear.
+
+
+                    Gracias por haberme escrito, gracias por invitarme, gracias por haber dejado que te conociera, gracias por ser la persona que eres.
+
+                    ¿Que te parece?, ¿Crees que podre vivir en tu corazon?
+                    ¿Te llegara? Espero que te llegue.
+
+                    Liz - Te quiero mucho.
+                </p>
+            </section>
+
+            <button id="cerrar">
+                Cerrar
+            </button>
+        </main>
+        
+        <script>
+            const btn = document.getElementById("abrir");
+            const btn2 = document.getElementById("cerrar");
+            const mensaje = document.getElementById("mensaje");
+            const triangulo = document.getElementById("triangulo");
+
+            btn.addEventListener("click", ()=>{
+                mensaje.style.display = "block";
+                btn.style.display = "none";
+                btn2.style.display = "block";
+                triangulo.style.top = "-150px";
+                document.querySelector(".sobre").style.height = "auto";
+            });
+
+            btn2.addEventListener("click", ()=>{
+                mensaje.style.display = "none";
+                btn.style.display = "block";
+                btn2.style.display = "none";
+                triangulo.style.top = "0";
+                document.querySelector(".sobre").style.height = "200px";
+            });
+        </script>
+
+    </body>
+
+</html>
